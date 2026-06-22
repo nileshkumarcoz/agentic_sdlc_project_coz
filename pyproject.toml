@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "agentic_sdlc"
+version = "0.1.0"
+description = "Agentic SDLC project"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4",
+    "pytest-mock>=3.12",
+    "pytest-cov>=4.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src/agentic_sdlc --cov-report=term-missing"
+
+[tool.coverage.report]
+fail_under = 80
